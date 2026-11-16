@@ -1,90 +1,33 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <!-- EDIT: 브라우저 탭 제목과 검색 설명 -->
-  <title>Your Name — Research & Ideas</title>
-  <meta name="description" content="A personal portfolio for research, projects, and publications.">
-  <style>
-    :root{--ink:#183b30;--paper:#f6f5ee;--muted:#63736a;--line:#d8ded4;--accent:#c7e29d}
-    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.7 Arial,'Noto Sans KR',sans-serif}a{color:inherit}a:focus-visible,button:focus-visible{outline:3px solid #c6a94c;outline-offset:6px}.skip{position:fixed;top:-90px;left:20px;z-index:99;background:white;padding:10px}.skip:focus{top:10px}
-    header{position:fixed;inset:0 0 auto;z-index:10;background:rgba(13,41,29,.94);color:#fff}nav{max-width:1200px;margin:auto;height:78px;display:flex;align-items:center;justify-content:space-between;padding:0 36px}.brand{text-decoration:none;font:bold 20px Georgia,serif;letter-spacing:.03em}.links{display:flex;gap:35px}.links a{text-decoration:none;font-size:15px;padding:7px 0;border-bottom:2px solid transparent}.links a:hover,.links a[aria-current]{border-color:var(--accent);color:var(--accent)}
-    .hero{height:100svh;min-height:660px;position:relative;color:white;isolation:isolate;display:flex;align-items:flex-end;padding:140px max(7vw,28px) 110px;background:#143927}.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:65% center;z-index:-2}.hero:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(4,28,17,.52),transparent 85%),linear-gradient(0deg,rgba(4,28,17,.5),transparent 70%)}.hero-copy{max-width:640px}.eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:12px;font-weight:bold}.hero h1{font:clamp(48px,7.5vw,100px)/1.08 Georgia,serif;margin:22px 0}.hero p{font-size:clamp(17px,2vw,23px);max-width:520px;color:#edf4e3}.hero .button{display:inline-block;text-decoration:none;border:1px solid #c8d6b7;padding:10px 22px;margin-top:20px;font-size:14px;background:rgba(12,39,25,.45)}.button:hover{background:#244b38}.down{position:absolute;bottom:30px;left:max(7vw,28px);font-size:12px;letter-spacing:.12em;text-decoration:none}
-    .section{max-width:1120px;margin:auto;padding:105px 36px}.section h2{font:clamp(36px,5vw,57px)/1.15 Georgia,serif;font-weight:normal;margin:15px 0 28px}.section p{color:var(--muted)}.about{display:grid;grid-template-columns:1fr 1.5fr;gap:70px}.about p{margin:0 0 22px}.tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:25px}.tags span{border:1px solid var(--line);padding:5px 13px;font-size:13px}.projects-wrap{background:#e9eee5}.section-head{display:flex;align-items:end;justify-content:space-between;gap:24px}.section-head p{font-size:14px;max-width:340px}.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:36px}.project{border-top:2px solid #809e73;padding-top:20px}.number{font:italic 30px Georgia,serif;color:#68835f}.project h3{font:26px/1.3 Georgia,serif;margin:23px 0 14px}.project p{font-size:15px}.type{font-size:11px;text-transform:uppercase;letter-spacing:.12em}.publications{list-style:none;margin:36px 0 0;padding:0}.publications li{display:grid;grid-template-columns:85px 1fr;gap:25px;border-top:1px solid var(--line);padding:28px 0}.year{font:24px Georgia,serif}.publications h3{font:24px/1.4 Georgia,serif;margin:0 0 9px}.publications p{font-size:14px;margin:0}.note{font-size:13px;color:var(--muted)}footer{background:#15392c;color:#e2eadc;padding:45px 36px}.footer-inner{max-width:1048px;margin:auto;display:flex;justify-content:space-between;gap:22px;font-size:13px}footer p{margin:0}footer a{text-underline-offset:4px}
-    @media(max-width:700px){nav{padding:0 20px;height:70px}.brand{font-size:17px}.links{gap:14px}.links a{font-size:12px}.hero{min-height:700px;padding:140px 25px 100px}.hero img{object-position:70% center}.hero:after{background:linear-gradient(0deg,rgba(4,28,17,.92),rgba(4,28,17,.05) 80%)}.hero h1{font-size:54px}.hero p{max-width:310px}.section{padding:70px 25px}.about{grid-template-columns:1fr;gap:12px}.section-head{display:block}.projects{grid-template-columns:1fr;gap:32px}.publications li{grid-template-columns:55px 1fr;gap:15px}.publications h3{font-size:21px}.footer-inner{flex-direction:column}.down{left:25px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-
-    /* Winter theme */
-    :root{--ink:#213c51;--paper:#f4f8fb;--muted:#5e7585;--line:#d5e3eb;--accent:#c5e9ff}
-    header{background:rgba(16,38,59,.94)}
-    .hero{background:#274762}
-    .hero:after{background:linear-gradient(90deg,rgba(12,31,50,.65),rgba(15,38,58,.08) 85%),linear-gradient(0deg,rgba(13,35,52,.45),transparent 72%)}
-    .hero p{color:#eef8ff}.hero .button{border-color:#cde7f8;background:rgba(16,46,69,.48)}.button:hover{background:#2c5875}
-    .projects-wrap{background:#e7f1f7}.project{border-color:#8db5ca}.number{color:#527e99}footer{background:#17354c;color:#e5f4fc}
-    .snowfall{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
-    .snowfall span{position:absolute;top:-5%;left:var(--x);width:var(--size);height:var(--size);border-radius:50%;background:#fff;opacity:var(--opacity);filter:blur(var(--blur));animation:snow-fall var(--duration) linear infinite;animation-delay:var(--delay)}
-    @keyframes snow-fall{from{transform:translate3d(0,-20px,0)}to{transform:translate3d(var(--drift),110vh,0)}}
-    .hero-copy,.down{position:relative;z-index:2}.down{position:absolute}
-    @media(max-width:700px){.hero:after{background:linear-gradient(0deg,rgba(12,31,50,.85),rgba(12,31,50,.12) 85%)}}
-    @media(prefers-reduced-motion:reduce){.snowfall span{animation:none;top:var(--static-y)}}
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Name | Winter Research Portfolio</title>
+<meta name="description" content="Personal research portfolio — projects, publications and activities.">
+<style>
+:root{--navy:#142b45;--deep:#0d1d33;--blue:#497397;--ice:#dceef8;--white:#fff;--muted:#587085;--line:#dce7ee}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:85px}body{margin:0;color:var(--navy);background:#f4f9fc;font:16px/1.75 'Segoe UI','Noto Sans KR',Arial,sans-serif}a{color:inherit}button{font:inherit}a:focus-visible,button:focus-visible{outline:3px solid #76c5ff;outline-offset:4px}
+header{position:fixed;inset:0 0 auto;z-index:50;background:rgba(12,31,54,.91);backdrop-filter:blur(14px);color:white;border-bottom:1px solid #ffffff35}nav{max-width:1200px;margin:auto;min-height:74px;padding:0 28px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font:700 19px Georgia,serif;letter-spacing:.04em;text-decoration:none}.links{display:flex;gap:27px;align-items:center;flex-wrap:wrap}.links a{text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.03em}.links a:hover{color:#bde6ff}
+.hero{min-height:92svh;position:relative;display:flex;align-items:center;isolation:isolate;overflow:hidden;color:white;background:#193a5e}.hero-bg{position:absolute;inset:0;z-index:-3;background-image:url('assets/winter-forest.png');background-size:cover;background-position:center 42%;transform:scale(1.025)}.hero:before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(7,24,46,.83) 0%,rgba(11,37,63,.53) 45%,rgba(14,43,69,.08) 100%),linear-gradient(0deg,rgba(7,24,46,.35),transparent 55%)}.hero-inner{max-width:1200px;width:100%;margin:auto;padding:150px 36px 125px}.kicker{font-size:12px;font-weight:700;letter-spacing:.23em;text-transform:uppercase;color:#c6eaff}.hero h1{font:normal clamp(54px,8vw,108px)/1.04 Georgia,serif;letter-spacing:-.04em;margin:24px 0}.hero p{font-size:clamp(17px,2.2vw,24px);max-width:600px;color:#f1f9ff}.hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:35px}.btn{display:inline-block;text-decoration:none;padding:11px 24px;border:1px solid #e3f6ff;background:#e9f6ff;color:#17334e;font-size:14px;font-weight:700;border-radius:3px}.btn.outline{background:#09223d66;color:white}.btn:hover{background:#b9e6ff;color:#112b45}.scroll{position:absolute;bottom:26px;left:max(calc((100vw - 1128px)/2),36px);font-size:11px;letter-spacing:.17em;text-decoration:none;color:#d8efff}
+.snow{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:2}.flake{position:absolute;top:-20px;border-radius:50%;background:#fff;box-shadow:0 0 8px 2px #e8f6ff88;animation:fall linear infinite;opacity:.8}@keyframes fall{from{transform:translate3d(0,-20px,0)}to{transform:translate3d(var(--drift),105vh,0)}}
+.section{max-width:1120px;margin:auto;padding:95px 30px}.eyebrow{display:block;color:#5484a5;font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}.section h2{font:normal clamp(35px,5vw,55px)/1.2 Georgia,serif;margin:13px 0 28px}.section-lead{max-width:760px;color:var(--muted)}.news-section{background:#fff}.news-list{margin-top:28px;border-top:1px solid var(--line)}.news-item{display:grid;grid-template-columns:90px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}.news-date{color:#5a89a7;font-size:13px;font-weight:700}.news-item p{margin:0}.about-layout{display:grid;grid-template-columns:1fr 1.6fr;gap:65px}.about-layout p{margin-top:0;color:#536e82}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:25px}.tags span{font-size:12px;border:1px solid #bdd6e6;background:#e9f4fb;padding:6px 12px;border-radius:30px}.frost{background:linear-gradient(180deg,#e8f3fa,#f6fafc)}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:35px}.card{padding:30px 25px;background:#ffffffd9;border:1px solid #d6e7f1;box-shadow:0 8px 30px #153b5710;border-radius:5px}.card .num{color:#7aa8c8;font:italic 32px Georgia,serif}.card h3{font:normal 26px/1.25 Georgia,serif;margin:20px 0}.card p{font-size:14px;color:#5c7588}.pub-list{list-style:none;padding:0;margin:30px 0 0;border-top:1px solid var(--line)}.pub-list li{display:grid;grid-template-columns:85px 1fr;gap:20px;padding:24px 0;border-bottom:1px solid var(--line)}.pub-list h3{font-size:18px;margin:0 0 6px}.pub-list p{margin:0;color:var(--muted);font-size:14px}.activity{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:28px}.activity article{padding:22px;background:white;border-left:3px solid #8abbd8}.activity p{color:var(--muted);margin:6px 0 0;font-size:14px}.links-section{text-align:center}.link-buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:26px}.link-buttons a{border:1px solid #9bbdd3;padding:10px 23px;text-decoration:none;border-radius:3px}footer{background:#10283f;color:#d5e7f3;padding:34px 25px;text-align:center;font-size:12px}.photo-note{font-size:12px;color:#7890a1;margin-top:25px}
+@media(max-width:720px){nav{padding:12px 18px;min-height:68px;align-items:flex-start;flex-direction:column;gap:5px}.brand{font-size:16px}.links{gap:15px}.links a{font-size:11px}.hero-inner{padding:180px 24px 110px}.hero{min-height:760px}.hero h1{font-size:59px}.hero-bg{background-position:52% center}.hero:before{background:linear-gradient(0deg,#071b33d9,#0a29456e)}.scroll{left:24px}.section{padding:65px 22px}.about-layout,.cards,.activity{grid-template-columns:1fr;gap:16px}.news-item{grid-template-columns:70px 1fr;gap:12px}.pub-list li{grid-template-columns:60px 1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.flake{animation:none;display:none}}
+</style>
 </head>
 <body>
-<a class="skip" href="#about">Skip to content</a>
-<header><nav aria-label="Main navigation">
-  <!-- EDIT: 이름/이니셜 -->
-  <a class="brand" href="#home">Your Name.</a>
-  <div class="links"><a href="#home" aria-current="location">Home</a><a href="#about">About</a><a href="#project">Project</a><a href="#publication">Publication</a></div>
-</nav></header>
+<header><nav aria-label="주 메뉴"><a class="brand" href="#home">❄ Your Name · Research</a><div class="links"><a href="#home">Home</a><a href="#news">News</a><a href="#about">About</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#activity">Activity</a><a href="#links">Links</a></div></nav></header>
 <main>
-  <section class="hero" id="home" aria-labelledby="name">
-    <!-- EDIT: 겨울 배경은 assets/winter-landscape.svg -->
-    <img src="assets/winter-landscape.svg" alt="Snow-covered winter mountains and evergreen forest" fetchpriority="high">
-    <div class="snowfall" aria-hidden="true"></div>
-    <div class="hero-copy"><span class="eyebrow">Welcome to my corner of the world</span><h1 id="name">Your Name</h1><p>Curious minds. Meaningful questions.<br>One small discovery at a time.</p><a class="button" href="#about">A little about me ↗</a></div>
-    <a href="#about" class="down">SCROLL TO EXPLORE ↓</a>
-  </section>
-  <!-- 아래 소개, 프로젝트, 논문은 모두 교체용 예시입니다. -->
-  <section class="section about" id="about" aria-labelledby="about-title">
-    <div><span class="eyebrow">01 / A little introduction</span><h2 id="about-title">About me.</h2></div>
-    <div><p>Hello! I’m <strong>Your Name</strong>, a student and aspiring researcher interested in how data can help us understand the world.</p><p>I enjoy turning interesting questions into thoughtful projects, learning new tools, and sharing what I discover along the way.</p><p>안녕하세요. 이곳에 소속, 관심 분야, 간단한 자기소개를 작성해 주세요. 수업 과제, 연구 활동, 개인 프로젝트 등을 소개할 수 있습니다.</p><div class="tags"><span>Data Science</span><span>Machine Learning</span><span>Creative Projects</span></div></div>
-  </section>
-  <div class="projects-wrap"><section class="section" id="project" aria-labelledby="project-title">
-    <div class="section-head"><div><span class="eyebrow">02 / Ideas in practice</span><h2 id="project-title">Selected projects.</h2></div><p>A few things I’m exploring, building, and learning from.</p></div>
-    <div class="projects">
-      <article class="project"><span class="number">01</span><h3>Making sense<br>of data</h3><span class="type">Example / Data analysis</span><p>Explore a public dataset, ask a clear question, and communicate the findings through simple visualizations.</p></article>
-      <article class="project"><span class="number">02</span><h3>Learning with<br>neural networks</h3><span class="type">Example / Machine learning</span><p>Build a small classification model and investigate what improves its performance and where it makes mistakes.</p></article>
-      <article class="project"><span class="number">03</span><h3>A space for<br>my ideas</h3><span class="type">Example / Web development</span><p>Create a personal website with HTML and CSS, then publish it with GitHub Pages to share projects and interests.</p></article>
-    </div>
-  </section></div>
-  <section class="section" id="publication" aria-labelledby="pub-title">
-    <span class="eyebrow">03 / Writing & research</span><h2 id="pub-title">Publications.</h2><p>Research papers, reports, and other things I’ve written.</p>
-    <p class="note">아래 항목은 형식을 보여주기 위한 가상 예시입니다. 논문이 없으면 수업 보고서나 발표 자료를 적어도 됩니다.</p>
-    <ol class="publications"><li><span class="year">2026</span><div><h3>Your research paper or project report title</h3><p><strong>Your Name</strong>, Coauthor Name</p><p>Journal / Conference / Course report · Example entry</p></div></li><li><span class="year">2025</span><div><h3>Another piece of writing you would like to share</h3><p><strong>Your Name</strong></p><p>Presentation / Technical report · Example entry</p></div></li></ol>
-  </section>
-</main>
-<footer><div class="footer-inner"><p>© <span id="year">2026</span> Your Name · Personal portfolio</p><a href="#home">Back to top ↑</a></div></footer>
+<section id="home" class="hero"><div class="hero-bg" role="img" aria-label="눈이 내리는 겨울 숲 풍경"></div><div class="snow" id="snow" aria-hidden="true"></div><div class="hero-inner"><span class="kicker">Welcome to my research space</span><h1>Your Name.</h1><p>Exploring data, learning from patterns,<br>and discovering new ideas.</p><div class="hero-actions"><a class="btn" href="#about">About me ↗</a><a class="btn outline" href="#research">Explore research ↓</a></div></div><a class="scroll" href="#news">SCROLL TO EXPLORE ↓</a></section>
+<section id="news" class="news-section"><div class="section"><span class="eyebrow">01 / Updates</span><h2>News & Updates.</h2><p class="section-lead">최근 연구와 프로젝트 소식을 소개하는 공간입니다. 아래 내용은 수정 가능한 예시입니다.</p><div class="news-list"><div class="news-item"><span class="news-date">2026</span><p>새로운 연구 프로젝트를 시작했습니다. (예시)</p></div><div class="news-item"><span class="news-date">2026</span><p>머신러닝 및 딥러닝 모델 실험을 진행하고 있습니다. (예시)</p></div><div class="news-item"><span class="news-date">2025</span><p>데이터 분석 프로젝트 결과를 정리했습니다. (예시)</p></div></div></div></section>
+<section id="about" class="section about-layout"><div><span class="eyebrow">02 / Introduction</span><h2>About me.</h2></div><div><p>Hello! I'm <strong>Your Name</strong>, a student and aspiring researcher interested in statistics, machine learning, and deep learning.</p><p>안녕하세요. 이곳에 소속, 관심 연구 분야, 연구 목표 등을 자유롭게 작성해 주세요. 참고 사이트처럼 연구실 소개 형식으로 변경할 수도 있습니다.</p><div class="tags"><span>Statistics</span><span>Deep Learning</span><span>Machine Learning</span><span>Data Science</span></div></div></section>
+<div class="frost"><section id="research" class="section"><span class="eyebrow">03 / Research</span><h2>Research & Projects.</h2><p class="section-lead">연구 주제와 프로젝트를 소개합니다. 각 카드의 제목과 설명을 수정하면 됩니다.</p><div class="cards"><article class="card"><span class="num">01</span><h3>Computer Vision</h3><p>이미지 분류 및 시각 인식 모델을 활용한 연구 프로젝트를 소개합니다.</p></article><article class="card"><span class="num">02</span><h3>Machine Learning</h3><p>통계적 학습 및 예측 모델의 성능을 비교하고 해석합니다.</p></article><article class="card"><span class="num">03</span><h3>Data Analytics</h3><p>데이터 탐색, 시각화 및 분석 결과를 정리합니다.</p></article></div></section></div>
+<section id="publications" class="section"><span class="eyebrow">04 / Writing</span><h2>Publications.</h2><p class="section-lead">논문, 보고서, 발표 자료 등을 정리하는 공간입니다. 현재 항목은 가상 예시입니다.</p><ol class="pub-list"><li><strong>2026</strong><div><h3>Research paper or project report title</h3><p>Your Name · Course report / Research project (Example)</p></div></li><li><strong>2025</strong><div><h3>Another research or presentation title</h3><p>Your Name · Presentation (Example)</p></div></li></ol></section>
+<div class="frost"><section id="activity" class="section"><span class="eyebrow">05 / Experience</span><h2>Activity.</h2><div class="activity"><article><strong>Research Activities</strong><p>연구실 활동, 세미나 및 연구 경험을 기록합니다.</p></article><article><strong>Projects & Presentations</strong><p>팀 프로젝트, 학회 발표 및 대외 활동을 기록합니다.</p></article></div></section></div>
+<section id="links" class="section links-section"><span class="eyebrow">06 / Connect</span><h2>Links.</h2><p class="section-lead" style="margin:auto">연락처나 연구 관련 링크를 추가할 수 있습니다.</p><div class="link-buttons"><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://scholar.google.com/" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a><a href="mailto:your-email@example.com">Email ↗</a></div><p class="photo-note">배경은 요청하신 겨울 숲 분위기를 바탕으로 새롭게 제작한 이미지입니다.</p></section>
+</main><footer>© <span id="year"></span> Your Name · Winter Research Portfolio</footer>
 <script>
-
-  // Decorative snowfall: no libraries or external resources required.
-  const snowfall=document.querySelector('.snowfall');
-  if(snowfall){
-    const fragment=document.createDocumentFragment();
-    for(let i=0;i<85;i++){
-      const flake=document.createElement('span');
-      const r=(n)=>Math.random()*n;
-      flake.style.cssText=`--x:${r(100)}%;--size:${2+r(5)}px;--opacity:${.35+r(.6)};--blur:${r(1.4)}px;--duration:${9+r(13)}s;--delay:${-r(22)}s;--drift:${-100+r(200)}px;--static-y:${r(100)}%`;
-      fragment.appendChild(flake);
-    }
-    snowfall.appendChild(fragment);
-  }
-  document.getElementById('year').textContent=new Date().getFullYear();
-  const links=[...document.querySelectorAll('.links a')];
-  const observer=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{if(entry.isIntersecting){links.forEach(link=>{if(link.hash==='#'+entry.target.id){link.setAttribute('aria-current','location')}else{link.removeAttribute('aria-current')}})}});
-  },{rootMargin:'-20% 0px -55% 0px',threshold:0});
-  document.querySelectorAll('main section[id]').forEach(section=>observer.observe(section));
+document.getElementById('year').textContent=new Date().getFullYear();
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){const snow=document.getElementById('snow');const count=window.innerWidth<720?48:95;const frag=document.createDocumentFragment();for(let i=0;i<count;i++){const f=document.createElement('span');f.className='flake';const size=1.5+Math.random()*5;f.style.cssText=`left:${Math.random()*100}%;width:${size}px;height:${size}px;opacity:${.3+Math.random()*.6};animation-duration:${7+Math.random()*13}s;animation-delay:${-Math.random()*22}s;--drift:${-90+Math.random()*180}px`;frag.appendChild(f)}snow.appendChild(frag)}
 </script>
-</body>
-</html>
+</body></html>
