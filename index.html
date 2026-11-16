@@ -14,6 +14,20 @@
     .section{max-width:1120px;margin:auto;padding:105px 36px}.section h2{font:clamp(36px,5vw,57px)/1.15 Georgia,serif;font-weight:normal;margin:15px 0 28px}.section p{color:var(--muted)}.about{display:grid;grid-template-columns:1fr 1.5fr;gap:70px}.about p{margin:0 0 22px}.tags{display:flex;flex-wrap:wrap;gap:9px;margin-top:25px}.tags span{border:1px solid var(--line);padding:5px 13px;font-size:13px}.projects-wrap{background:#e9eee5}.section-head{display:flex;align-items:end;justify-content:space-between;gap:24px}.section-head p{font-size:14px;max-width:340px}.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:36px}.project{border-top:2px solid #809e73;padding-top:20px}.number{font:italic 30px Georgia,serif;color:#68835f}.project h3{font:26px/1.3 Georgia,serif;margin:23px 0 14px}.project p{font-size:15px}.type{font-size:11px;text-transform:uppercase;letter-spacing:.12em}.publications{list-style:none;margin:36px 0 0;padding:0}.publications li{display:grid;grid-template-columns:85px 1fr;gap:25px;border-top:1px solid var(--line);padding:28px 0}.year{font:24px Georgia,serif}.publications h3{font:24px/1.4 Georgia,serif;margin:0 0 9px}.publications p{font-size:14px;margin:0}.note{font-size:13px;color:var(--muted)}footer{background:#15392c;color:#e2eadc;padding:45px 36px}.footer-inner{max-width:1048px;margin:auto;display:flex;justify-content:space-between;gap:22px;font-size:13px}footer p{margin:0}footer a{text-underline-offset:4px}
     @media(max-width:700px){nav{padding:0 20px;height:70px}.brand{font-size:17px}.links{gap:14px}.links a{font-size:12px}.hero{min-height:700px;padding:140px 25px 100px}.hero img{object-position:70% center}.hero:after{background:linear-gradient(0deg,rgba(4,28,17,.92),rgba(4,28,17,.05) 80%)}.hero h1{font-size:54px}.hero p{max-width:310px}.section{padding:70px 25px}.about{grid-template-columns:1fr;gap:12px}.section-head{display:block}.projects{grid-template-columns:1fr;gap:32px}.publications li{grid-template-columns:55px 1fr;gap:15px}.publications h3{font-size:21px}.footer-inner{flex-direction:column}.down{left:25px}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+    /* Winter theme */
+    :root{--ink:#213c51;--paper:#f4f8fb;--muted:#5e7585;--line:#d5e3eb;--accent:#c5e9ff}
+    header{background:rgba(16,38,59,.94)}
+    .hero{background:#274762}
+    .hero:after{background:linear-gradient(90deg,rgba(12,31,50,.65),rgba(15,38,58,.08) 85%),linear-gradient(0deg,rgba(13,35,52,.45),transparent 72%)}
+    .hero p{color:#eef8ff}.hero .button{border-color:#cde7f8;background:rgba(16,46,69,.48)}.button:hover{background:#2c5875}
+    .projects-wrap{background:#e7f1f7}.project{border-color:#8db5ca}.number{color:#527e99}footer{background:#17354c;color:#e5f4fc}
+    .snowfall{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+    .snowfall span{position:absolute;top:-5%;left:var(--x);width:var(--size);height:var(--size);border-radius:50%;background:#fff;opacity:var(--opacity);filter:blur(var(--blur));animation:snow-fall var(--duration) linear infinite;animation-delay:var(--delay)}
+    @keyframes snow-fall{from{transform:translate3d(0,-20px,0)}to{transform:translate3d(var(--drift),110vh,0)}}
+    .hero-copy,.down{position:relative;z-index:2}.down{position:absolute}
+    @media(max-width:700px){.hero:after{background:linear-gradient(0deg,rgba(12,31,50,.85),rgba(12,31,50,.12) 85%)}}
+    @media(prefers-reduced-motion:reduce){.snowfall span{animation:none;top:var(--static-y)}}
   </style>
 </head>
 <body>
@@ -25,8 +39,9 @@
 </nav></header>
 <main>
   <section class="hero" id="home" aria-labelledby="name">
-    <!-- EDIT: 사진 교체는 assets/turtle-hero.png 파일을 바꾸거나 아래 src 수정 -->
-    <img src="assets/turtle-hero.png" alt="A smiling green cartoon turtle sitting by a sunlit forest pond" fetchpriority="high">
+    <!-- EDIT: 겨울 배경은 assets/winter-landscape.svg -->
+    <img src="assets/winter-landscape.svg" alt="Snow-covered winter mountains and evergreen forest" fetchpriority="high">
+    <div class="snowfall" aria-hidden="true"></div>
     <div class="hero-copy"><span class="eyebrow">Welcome to my corner of the world</span><h1 id="name">Your Name</h1><p>Curious minds. Meaningful questions.<br>One small discovery at a time.</p><a class="button" href="#about">A little about me ↗</a></div>
     <a href="#about" class="down">SCROLL TO EXPLORE ↓</a>
   </section>
@@ -51,6 +66,19 @@
 </main>
 <footer><div class="footer-inner"><p>© <span id="year">2026</span> Your Name · Personal portfolio</p><a href="#home">Back to top ↑</a></div></footer>
 <script>
+
+  // Decorative snowfall: no libraries or external resources required.
+  const snowfall=document.querySelector('.snowfall');
+  if(snowfall){
+    const fragment=document.createDocumentFragment();
+    for(let i=0;i<85;i++){
+      const flake=document.createElement('span');
+      const r=(n)=>Math.random()*n;
+      flake.style.cssText=`--x:${r(100)}%;--size:${2+r(5)}px;--opacity:${.35+r(.6)};--blur:${r(1.4)}px;--duration:${9+r(13)}s;--delay:${-r(22)}s;--drift:${-100+r(200)}px;--static-y:${r(100)}%`;
+      fragment.appendChild(flake);
+    }
+    snowfall.appendChild(fragment);
+  }
   document.getElementById('year').textContent=new Date().getFullYear();
   const links=[...document.querySelectorAll('.links a')];
   const observer=new IntersectionObserver(entries=>{
