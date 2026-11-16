@@ -13,12 +13,49 @@ header{position:fixed;inset:0 0 auto;z-index:50;background:rgba(12,31,54,.91);ba
 .section{max-width:1120px;margin:auto;padding:95px 30px}.eyebrow{display:block;color:#5484a5;font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}.section h2{font:normal clamp(35px,5vw,55px)/1.2 Georgia,serif;margin:13px 0 28px}.section-lead{max-width:760px;color:var(--muted)}.news-section{background:#fff}.news-list{margin-top:28px;border-top:1px solid var(--line)}.news-item{display:grid;grid-template-columns:90px 1fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}.news-date{color:#5a89a7;font-size:13px;font-weight:700}.news-item p{margin:0}.about-layout{display:grid;grid-template-columns:1fr 1.6fr;gap:65px}.about-layout p{margin-top:0;color:#536e82}.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:25px}.tags span{font-size:12px;border:1px solid #bdd6e6;background:#e9f4fb;padding:6px 12px;border-radius:30px}.frost{background:linear-gradient(180deg,#e8f3fa,#f6fafc)}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:35px}.card{padding:30px 25px;background:#ffffffd9;border:1px solid #d6e7f1;box-shadow:0 8px 30px #153b5710;border-radius:5px}.card .num{color:#7aa8c8;font:italic 32px Georgia,serif}.card h3{font:normal 26px/1.25 Georgia,serif;margin:20px 0}.card p{font-size:14px;color:#5c7588}.pub-list{list-style:none;padding:0;margin:30px 0 0;border-top:1px solid var(--line)}.pub-list li{display:grid;grid-template-columns:85px 1fr;gap:20px;padding:24px 0;border-bottom:1px solid var(--line)}.pub-list h3{font-size:18px;margin:0 0 6px}.pub-list p{margin:0;color:var(--muted);font-size:14px}.activity{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:28px}.activity article{padding:22px;background:white;border-left:3px solid #8abbd8}.activity p{color:var(--muted);margin:6px 0 0;font-size:14px}.links-section{text-align:center}.link-buttons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:26px}.link-buttons a{border:1px solid #9bbdd3;padding:10px 23px;text-decoration:none;border-radius:3px}footer{background:#10283f;color:#d5e7f3;padding:34px 25px;text-align:center;font-size:12px}.photo-note{font-size:12px;color:#7890a1;margin-top:25px}
 @media(max-width:720px){nav{padding:12px 18px;min-height:68px;align-items:flex-start;flex-direction:column;gap:5px}.brand{font-size:16px}.links{gap:15px}.links a{font-size:11px}.hero-inner{padding:180px 24px 110px}.hero{min-height:760px}.hero h1{font-size:59px}.hero-bg{background-position:52% center}.hero:before{background:linear-gradient(0deg,#071b33d9,#0a29456e)}.scroll{left:24px}.section{padding:65px 22px}.about-layout,.cards,.activity{grid-template-columns:1fr;gap:16px}.news-item{grid-template-columns:70px 1fr;gap:12px}.pub-list li{grid-template-columns:60px 1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.flake{animation:none;display:none}}
+
+/* 눈 위를 가로지르는 스키 타는 졸라맨 */
+.skier-track{position:absolute;inset:auto 0 8% 0;height:140px;z-index:3;pointer-events:none;overflow:hidden}
+.skier-traveler{position:absolute;bottom:0;left:0;width:120px;height:118px;animation:ski-cross 17s linear infinite;will-change:transform;filter:drop-shadow(0 5px 3px #102b4b70)}
+.skier-bounce{width:100%;height:100%;animation:ski-stunts 17s ease-in-out infinite;transform-origin:60% 85%}
+.skier-traveler svg{width:100%;height:100%;overflow:visible}
+@keyframes ski-cross{from{transform:translateX(-150px)}to{transform:translateX(calc(100vw + 150px))}}
+/* 17초 동안 활강 → 점프 → 착지 → 넘어짐 → 다시 일어서기 */
+@keyframes ski-stunts{
+  0%,17%,25%,40%,48%,72%,100%{transform:translateY(0) rotate(-2deg)}
+  9%,21%,43%,77%,88%{transform:translateY(-4px) rotate(2deg)}
+  29%{transform:translateY(-24px) rotate(-9deg)}
+  33%{transform:translateY(-76px) rotate(-15deg)}
+  37%{transform:translateY(-35px) rotate(5deg)}
+  52%{transform:translateY(-7px) rotate(30deg)}
+  57%{transform:translateY(28px) rotate(82deg)}
+  63%{transform:translateY(30px) rotate(85deg)}
+  68%{transform:translateY(15px) rotate(36deg)}
+}
+.skier-puff{position:absolute;bottom:0;left:30px;width:78px;height:35px;opacity:0;animation:ski-puff 17s linear infinite;pointer-events:none}
+.skier-puff:before,.skier-puff:after{content:'';position:absolute;border-radius:50%;background:#f4fbffdd;box-shadow:0 0 12px #fff}
+.skier-puff:before{width:32px;height:15px;left:5px;top:12px}.skier-puff:after{width:19px;height:19px;left:38px;top:3px}
+@keyframes ski-puff{0%,36%,47%,53%,64%,100%{opacity:0;transform:scale(.5)}39%,58%{opacity:.95;transform:scale(1.3)}}
+@media(max-width:720px){.skier-track{bottom:5%;height:110px}.skier-traveler{width:92px;height:94px;animation-duration:12s}}
+@media(prefers-reduced-motion:reduce){.skier-traveler,.skier-bounce,.skier-puff{animation:none}.skier-traveler{transform:translateX(12vw)}}
 </style>
 </head>
 <body>
 <header><nav aria-label="주 메뉴"><a class="brand" href="#home">❄ HoSeung Research Lab</a><div class="links"><a href="#home">Home</a><a href="#news">News</a><a href="#about">About</a><a href="#research">Research</a><a href="#publications">Publications</a><a href="#activity">Activity</a><a href="#links">Links</a></div></nav></header>
 <main>
-<section id="home" class="hero"><div class="hero-bg" role="img" aria-label="눈이 내리는 겨울 숲 풍경"></div><div class="snow" id="snow" aria-hidden="true"></div><div class="hero-inner"><span class="kicker">Welcome to HoSeung Research Lab</span><h1>HoSeung Research Lab.</h1><p>Exploring data, learning from patterns,<br>and discovering new ideas.</p><div class="hero-actions"><a class="btn" href="#about">About me ↗</a><a class="btn outline" href="#research">Explore research ↓</a></div></div><a class="scroll" href="#news">SCROLL TO EXPLORE ↓</a></section>
+<section id="home" class="hero"><div class="hero-bg" role="img" aria-label="눈이 내리는 겨울 숲 풍경"></div><div class="snow" id="snow" aria-hidden="true"></div><div class="skier-track" aria-label="스키를 타고 이동하며 점프하고 넘어졌다가 다시 일어나는 졸라맨" role="img"><div class="skier-traveler"><div class="skier-puff"></div><div class="skier-bounce"><svg viewBox="0 0 140 130" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<!-- 간결한 스키어 실루엣: 머리, 몸통, 팔, 다리, 스키와 폴 -->
+<g fill="none" stroke="#0c2944" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<circle cx="72" cy="24" r="12" fill="#e7f5ff"/>
+<path d="M68 38 L57 70 L82 85 M58 70 L42 99 M59 70 L90 98"/>
+<path d="M63 48 L38 63 L20 52 M63 49 L91 65 L106 53"/>
+</g>
+<path d="M18 110 Q64 117 123 106 M30 116 Q80 125 135 111" stroke="#d6f4ff" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M19 54 L8 111 M106 54 L116 111" stroke="#f1f9ff" stroke-width="3" fill="none"/>
+<path d="M9 111 L2 115 M116 111 L124 115" stroke="#d8efff" stroke-width="3" stroke-linecap="round"/>
+<path d="M52 14 Q72 0 86 18" fill="none" stroke="#86c5ed" stroke-width="7" stroke-linecap="round"/>
+<path d="M59 24 L83 24" stroke="#3c7fa9" stroke-width="5" stroke-linecap="round"/>
+</svg></div></div></div><div class="hero-inner"><span class="kicker">Welcome to HoSeung Research Lab</span><h1>HoSeung Research Lab.</h1><p>Exploring data, learning from patterns,<br>and discovering new ideas.</p><div class="hero-actions"><a class="btn" href="#about">About me ↗</a><a class="btn outline" href="#research">Explore research ↓</a></div></div><a class="scroll" href="#news">SCROLL TO EXPLORE ↓</a></section>
 <section id="news" class="news-section"><div class="section"><span class="eyebrow">01 / Updates</span><h2>News & Updates.</h2><p class="section-lead">최근 연구와 프로젝트 소식을 소개하는 공간입니다. 아래 내용은 수정 가능한 예시입니다.</p><div class="news-list"><div class="news-item"><span class="news-date">2026</span><p>새로운 연구 프로젝트를 시작했습니다. (예시)</p></div><div class="news-item"><span class="news-date">2026</span><p>머신러닝 및 딥러닝 모델 실험을 진행하고 있습니다. (예시)</p></div><div class="news-item"><span class="news-date">2025</span><p>데이터 분석 프로젝트 결과를 정리했습니다. (예시)</p></div></div></div></section>
 <section id="about" class="section about-layout"><div><span class="eyebrow">02 / Introduction</span><h2>About me.</h2></div><div><p>Hello! I'm <strong>Choi Seung-Ho</strong>. Welcome to HoSeung Research Lab, my personal space for exploring statistics, machine learning, and deep learning.</p><p>안녕하세요. 최승호입니다. HoSeung Research Lab은 통계학, 머신러닝, 딥러닝을 공부하며 연구와 프로젝트를 기록하는 개인 연구 공간입니다.</p><div class="tags"><span>Statistics</span><span>Deep Learning</span><span>Machine Learning</span><span>Data Science</span></div></div></section>
 <div class="frost"><section id="research" class="section"><span class="eyebrow">03 / Research</span><h2>Research & Projects.</h2><p class="section-lead">연구 주제와 프로젝트를 소개합니다. 각 카드의 제목과 설명을 수정하면 됩니다.</p><div class="cards"><article class="card"><span class="num">01</span><h3>Computer Vision</h3><p>이미지 분류 및 시각 인식 모델을 활용한 연구 프로젝트를 소개합니다.</p></article><article class="card"><span class="num">02</span><h3>Machine Learning</h3><p>통계적 학습 및 예측 모델의 성능을 비교하고 해석합니다.</p></article><article class="card"><span class="num">03</span><h3>Data Analytics</h3><p>데이터 탐색, 시각화 및 분석 결과를 정리합니다.</p></article></div></section></div>
